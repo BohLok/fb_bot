@@ -1,5 +1,7 @@
 class BotController < ApplicationController
 
+
+
  def webhook
  #  if params['hub.verify_token'] == 'token_Vidjr?'
      render text: params['hub.challenge'] and return
@@ -14,7 +16,7 @@ def receive_message
      messaging_events.each do |event|
      sender = event[:sender][:id]
      if (text = event[:message] && event[:message][:text])
-       # send_text_message(sender, “Hi there! You said: #{text}. The Bots”)
+        send_text_message(sender, “Hi there! You said: #{text}. The Bots”)
      end
    end
  end
