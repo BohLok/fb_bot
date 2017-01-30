@@ -36,7 +36,7 @@ body = {
  }
 }.to_json
 response = HTTParty.post(
- "https://graph.facebook.com/v2.6/me/messages?access_token=#{ENV[acess_token]}",
+ "https://graph.facebook.com/v2.6/me/messages?access_token=#{ENV[fb_access_token]}",
  body: body,
  headers: { 'Content-Type' => 'application/json' }
 )
