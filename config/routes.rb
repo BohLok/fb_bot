@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'bot/webhook'
+  #get 'bot/webhook'
   root 'bot#webhook'
   
  get 'bot/webhook' => 'bot#webhook'

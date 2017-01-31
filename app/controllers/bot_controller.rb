@@ -5,11 +5,12 @@ class BotController < ApplicationController
 
 
  def webhook
- #  if params['hub.verify_token'] == 'token_Vidjr?'
+ 
+   if params['hub.verify_token'] == 'token_Vidjr'
      render text: params['hub.challenge'] and return
- #  else
- #    render text: 'error' and return
-#   end
+   else
+     render text: 'error' and return
+   end
   end
 
 def receive_message
@@ -36,7 +37,7 @@ body = {
  }
 }.to_json
 response = HTTParty.post(
- "https://graph.facebook.com/v2.6/me/messages?access_token=#{ENV[fb_access_token]}",
+ "https://graph.facebook.com/v2.6/me/messages?access_token=#{ENV[FB_ACCESS_TOKEN]}",
  body: body,
  headers: { 'Content-Type' => 'application/json' }
 )
